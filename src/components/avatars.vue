@@ -1,6 +1,6 @@
 <template>
   <div class="avatars" id="avatars">
-    <div class="avatar-card" v-for="avatar in avatars" :key="avatar.id">
+    <div class="avatar-card" v-for="avatar in allAvatars" :key="avatar.id">
       <h2>{{ avatar.name }}</h2>
       <p>{{ avatar.username }}</p>
     </div>
@@ -8,19 +8,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "avatars",
-  data() {
-    return {
-      avatars: [],
-    };
-  },
+  computed: mapGetters(["allAvatars"]),
+  methods: mapActions(["fetchAvatars"]),
   async mounted() {
-    const res = await fetch(
-      "https://jsonplaceholder.typicode.com/users?_limit=8"
-    );
-    const avatars = await res.json();
-    this.avatars = avatars;
+    this.fetchAvatars();
   },
 };
 </script>
