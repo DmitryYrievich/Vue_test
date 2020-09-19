@@ -1,21 +1,19 @@
 <template>
   <div id="app">
-    <top-menu></top-menu>
-    <router-view></router-view>
-    <!-- <avatars></avatars> -->
+    <TopMenu />
+    <routerView />
   </div>
   
 </template>
 
 <script>
-import topMenu from "./components/topMenu.vue";
-import avatars from "./components/avatars.vue";
+import TopMenu from "./components/TopMenu.vue";
+// import Avatars from "./components/Avatars.vue";
 import normalise from "./assets/styles.scss";
 export default {
-  name: "App",
   components: {
-    topMenu,
-    avatars,
+    TopMenu,
+    // Avatars,
   },
 };
 </script>

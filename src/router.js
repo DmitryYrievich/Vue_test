@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import AppAvatars from './components/avatars';
+import AppAvatars from './components/Avatars';
 
 let routes = [
   { name: 'home', path: '/'},

@@ -11,10 +11,6 @@
 
 <script>
 export default {
-  name: "topMenu",
-  props: {
-    msg: String,
-  },
 };
 </script>
 

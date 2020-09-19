@@ -8,13 +8,13 @@ export default {
       context.commit('updateAvatars', avatars)
     }
   },
+  state: {
+    avatars: [],
+  },
   mutations: {
     updateAvatars(state, avatars) {
       state.avatars = avatars
     }
-  },
-  state: {
-    avatars: [],
   },
   getters: {
     allAvatars(state) {
