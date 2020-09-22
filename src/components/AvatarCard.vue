@@ -1,13 +1,22 @@
 <template>
-  <div>
+  <router-link to="/avatar-item">Home>
     <div class="avatar-card" v-for="avatar in allAvatars" :key="avatar.id">
       <h2>{{ avatar.name }}</h2>
       <p>{{ avatar.username }}</p>
     </div>
-  </div>
-</template>
+  </router-link>
+</template> 
 <script>
-export default {};
+import { mapActions, mapGetters } from "vuex";
+export default {
+  async created() {
+    this.fetchAvatars();
+  },
+  computed: mapGetters(["allAvatars"]),
+  methods: {
+    ...mapActions(["fetchAvatars"]),
+  },
+};
 </script>
 <style lang="scss" scoped>
 .avatar-card {

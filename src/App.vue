@@ -2,18 +2,16 @@
   <div id="app">
     <TopMenu />
     <routerView />
-  </div>
+  </div> 
   
 </template>
 
 <script>
-import TopMenu from "./components/TopMenu.vue";
-// import Avatars from "./components/Avatars.vue";
+import TopMenu from "@/components/TopMenu.vue";
 import normalise from "./assets/styles.scss";
 export default {
   components: {
     TopMenu,
-    // Avatars,
   },
 };
 </script>
