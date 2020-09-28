@@ -1,14 +1,25 @@
 <template>
   <div class="avatars">
-    <AvatarCard />
+    <AvatarCard v-for="avatar in allAvatars" :key="avatar.id" />
+    <RouterView />
   </div>
 </template>
 
-<script> 
+<script>
 import AvatarCard from "@/components/AvatarCard.vue";
+
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   components: {
     AvatarCard,
+  },
+  async created() {
+    this.fetchAvatars();
+  },
+  computed: mapGetters(["allAvatars"]),
+  methods: {
+    ...mapActions(["fetchAvatars"]),
   },
 };
 </script>
@@ -20,5 +31,5 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}  
+}
 </style>

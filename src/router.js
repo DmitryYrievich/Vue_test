@@ -3,14 +3,27 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import AppAvatars from './components/Avatars';
-import AvatarItem from './components/AvatarItem';
+import AvatarPage from './components/AvatarPage';
 
-let routes = [
-  { name: 'home', path: '/'},
-  { name: 'avatars', path: '/avatars', component: AppAvatars },
-  { name: 'avatarItem', path: '/avatarItem', component: AvatarItem }
+let routes = [{
+    name: 'home',
+    path: '/'
+  },
+  {
+    name: 'avatars',
+    path: '/avatars',
+    component: AppAvatars,
+    children: [{
+      name: 'avatar-page',
+      path: ':id',
+      component: AvatarPage,
+      props: (route: Route) => ({
+        ...route.params
+      })
+    }]
+  }
 ];
 
 export default new VueRouter({
   routes
-});  
+});

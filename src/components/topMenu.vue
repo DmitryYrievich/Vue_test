@@ -1,10 +1,10 @@
 <template>
   <ul class="top-menu">
     <li>
-      <router-link to="/">Home</router-link>
+      <RouterLink to="/">Home</RouterLink>
     </li>
     <li>
-      <router-link to="/avatars">Avatars</router-link>
+      <RouterLink to="/avatars">Avatars</RouterLink>
     </li>
   </ul>
 </template>

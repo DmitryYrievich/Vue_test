@@ -9,7 +9,7 @@ export default {
     }
   },
   state: {
-    avatars: [], 
+    avatars: [],
   },
   mutations: {
     updateAvatars(state, avatars) {
