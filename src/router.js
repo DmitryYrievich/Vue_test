@@ -1,29 +1,37 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
+import VueRouter from 'vue-router';
 
-import AppAvatars from './components/Avatars';
-import AvatarPage from './components/AvatarPage';
+import Avatars from '@/components/Avatars.vue';
+import AvatarPage from '@/components/AvatarPage.vue';
+import DefaultAvatarPage from '@/components/DefaultAvatarPage.vue';
 
-let routes = [{
-    name: 'home',
-    path: '/'
-  },
-  {
-    name: 'avatars',
-    path: '/avatars',
-    component: AppAvatars,
-    children: [{
-      name: 'avatar-page',
-      path: ':id',
-      component: AvatarPage,
-      props: (route: Route) => ({
-        ...route.params
-      })
-    }]
+Vue.use(VueRouter);
+
+const routes = [{
+  name: 'home',
+  path: '/',
+},
+{
+  path: '/avatars',
+  component: Avatars,
+  children: [
+    {
+      name: 'avatars',
+      path: '',
+      component: DefaultAvatarPage
+    },
+    {
+    name: 'avatar-page',
+    path: ':id',
+    component: AvatarPage,
+    props: (route) => ({
+      ...route.params,
+    }),
   }
+  ],
+},
 ];
 
 export default new VueRouter({
-  routes
+  routes,
 });
