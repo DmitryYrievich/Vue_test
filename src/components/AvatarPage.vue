@@ -27,7 +27,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   props: {
-    id: {
+    id: { 
       type: String,
       required: true,
     },

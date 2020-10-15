@@ -3,8 +3,13 @@
     <div class="avatars-list-container">
       <h1 class="avatars__title">Avatars</h1>
       <div class="avatars-list">
-        <AvatarCard v-for="avatar in allAvatars" :avatar="avatar" :key="avatar.id" />
+        <AvatarCard
+          v-for="avatar in allAvatars"
+          :avatar="avatar"
+          :key="avatar.id"
+        />
       </div>
+      <LoadButton />
     </div>
     <div class="avatars-details-container">
       <h2 class="avatars-details-title">Avatar detail info</h2>
@@ -14,22 +19,28 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
-import AvatarCard from '@/components/AvatarCard.vue';
+import AvatarCard from "@/components/AvatarCard.vue";
+import LoadButton from "@/components/LoadButton.vue";
 
 export default {
   components: {
     AvatarCard,
+    LoadButton,
   },
   async created() {
     this.fetchAvatars();
   },
   computed: {
-    ...mapGetters(['allAvatars']),
+    ...mapGetters(["allAvatars"]),
   },
   methods: {
-    ...mapActions(['fetchAvatars']),
+    ...mapActions(["fetchAvatars"]),
+    addAvatars() {
+      console.log(this.allAvatars);
+      // this.$store.dispatch("avatars");
+    },
   },
 };
 </script>
@@ -40,7 +51,7 @@ export default {
   padding: 1.6rem;
 
   &__title {
-    margin: .8rem 0 1.6rem;
+    margin: 0.8rem 0 1.6rem;
   }
 }
 
@@ -57,7 +68,7 @@ export default {
 .avatars-details-container {
   margin-left: 1.6rem;
   flex: 1;
-  border-left: .1rem solid gainsboro;
+  border-left: 0.1rem solid gainsboro;
   padding-left: 1.6rem;
 }
 

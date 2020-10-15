@@ -8,7 +8,7 @@
 export default {
   props: {
     avatar: {
-      type: Object,
+      type: Object, 
       required: true,
     },
   },
