@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   props: {
@@ -31,6 +31,9 @@ export default {
       type: String,
       required: true,
     },
+  },
+  created() {
+    this.fetchAvatar(Number(this.id));
   },
   computed: {
     ...mapGetters(['avatarById']),
@@ -45,6 +48,9 @@ export default {
 
       return `${address.city}, ${address.zipcode}, ${address.street} str., ${address.suite}`;
     },
+  },
+  methods: {
+    ...mapActions(['fetchAvatar']),
   },
 };
 </script>
