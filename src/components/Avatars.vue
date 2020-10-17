@@ -5,6 +5,9 @@
       <div class="avatars-list">
         <AvatarCard v-for="avatar in allAvatars" :avatar="avatar" :key="avatar.id" />
       </div>
+      <div class="avatars-list-load-more">
+        <button @click="fetchAvatars" v-if="!isEndOfAvatarsList">load more</button>
+      </div>
     </div>
     <div class="avatars-details-container">
       <h2 class="avatars-details-title">Avatar detail info</h2>
@@ -26,7 +29,7 @@ export default {
     this.fetchAvatars();
   },
   computed: {
-    ...mapGetters(['allAvatars']),
+    ...mapGetters(['allAvatars', 'isEndOfAvatarsList']),
   },
   methods: {
     ...mapActions(['fetchAvatars']),
@@ -52,6 +55,11 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 8px;
+}
+
+.avatars-list-load-more {
+  margin-top: 24px;
+  text-align: center;
 }
 
 .avatars-details-container {
